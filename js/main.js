@@ -18,11 +18,7 @@ async function getISS () {
     try {
         const response = await axios.get('https://api.wheretheiss.at/v1/satellites/25544')
 
-        console.log(response)
         // Set ISS locations via DOM
-
-
-
         let numString = response.data.latitude.toString();
         let indexOfDecimal = numString.indexOf('.');
         let latNums = numString.substring(0, indexOfDecimal + 4); 

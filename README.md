@@ -1,6 +1,6 @@
 # International Space Station - Live Location
 
-This website shows the live location of the ISS retrieved from the API http://open-notify.org/Open-Notify-API/ISS-Location-Now/.
+This website shows the live location of the ISS retrieved from the API https://api.wheretheiss.at/v1/satellites/25544.
 
 ## Tech Stack
 

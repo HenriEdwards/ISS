@@ -137,7 +137,7 @@ function changeText() {
     textAttr.classList.add('fade-in-out');
 }
 
-// Retireve quotes data
+// Retireve quotes data & save to var
 let quotes = '';
 
 async function getQuotes() {
@@ -145,12 +145,11 @@ async function getQuotes() {
         quotes = await axios.get('../js/quotes.json');
 
         // Call function to change text at an interval
+        setInterval(changeText, 15000)
         changeText()
-
     } catch (error) {
         console.log('Error retrieving quotes: ', error)
     }
 }
 
 getQuotes()
-setInterval(changeText, 15000)

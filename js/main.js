@@ -16,14 +16,28 @@ let issLong = 0;
 async function getISS () {
     // Get ISS location
     try {
-        const response = await axios.get('http://api.open-notify.org/iss-now.json')
+        const response = await axios.get('https://api.wheretheiss.at/v1/satellites/25544')
+
+        console.log(response)
         // Set ISS locations via DOM
-        lat.textContent = response.data.iss_position.latitude;
-        long.textContent = response.data.iss_position.longitude;
+
+
+
+        let numString = response.data.latitude.toString();
+        let indexOfDecimal = numString.indexOf('.');
+        let latNums = numString.substring(0, indexOfDecimal + 4); 
+
+        lat.textContent = parseFloat(latNums);
+
+        numString = response.data.latitude.toString();
+        indexOfDecimal = numString.indexOf('.');
+        let longNums = numString.substring(0, indexOfDecimal + 4); 
+
+        long.textContent = parseFloat(longNums);
 
         // Save ISS lat/long to variables
-        issLat = parseFloat(response.data.iss_position.latitude);
-        issLong = parseFloat(response.data.iss_position.longitude);
+        issLat = parseFloat(latNums);
+        issLong =  parseFloat(longNums);
         
     } catch(error) {
         console.log('Error retrieving ISS data: ',error);
@@ -47,7 +61,7 @@ async function getCountry () {
         // Loop through countries data and find closes country to ISS
         for (let i = 0; i < countries.length; i++) {
 
-            // // Varws to hold current country's lat/long
+            // Vars to hold current country's lat/long
             let countryLat = parseFloat(countries[i].Latitude);
             let countryLong = parseFloat(countries[i].Longitude);
 

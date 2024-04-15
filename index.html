@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/rocket.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>ISS - Live Location</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar" id="home">
+            <h1>International Space Station</h1>
+        </div>
+
+        <div class="container">
+            <div class="box iss-description">
+                <h2>What is the ISS ?</h2>
+                <p>The International Space Station (ISS) is a large spacecraft orbiting Earth, serving as a research laboratory where astronauts from different countries conduct experiments to advance scientific knowledge and develop technologies for space exploration.<br><br>  <em>*Below is the real-time coordinates of the International Space Station (ISS) and the closest country/capital (calculated using the Haversine formula). </em>
+                </p>
+            </div>
+            <div class="content">
+                
+                <div class="box">
+                    <ul class="iss-text">
+                        <span class="material-symbols-outlined lat-rotate">
+                            north
+                        </span>
+                        <li>Latitude</li>
+                        <li class="lat"></li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <ul class="iss-text">
+                        <span class="material-symbols-outlined">
+                            north
+                        </span>
+                        <li>Longitude</li>
+                        <li class="long"></li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <ul class="iss-text">
+                        <span class="material-symbols-outlined">
+                            flag
+                        </span>
+                        <li>Country</li>
+                        <li class="country"></li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <ul class="iss-text">
+                        <span class="material-symbols-outlined">
+                            location_city
+                        </span>
+                        <li>Capital</li>
+                        <li class="capital"></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="content">
+
+                <div class="box quote-container">
+                    <p class="text-carousel-1"></p>
+                    <span class="attr"></span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>The determination of the closest country is based on the center point of each country's area. The coordinates are retrieved from the http://open-notify.org/Open-Notify-API/ISS-Location-Now/ API every second and the closest country/capital is calculated every 5 seconds.
+            </p>
+        </div>
+        <img class="bg" src="./assets/bg.jpg" alt="">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

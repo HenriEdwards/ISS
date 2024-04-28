@@ -1,3 +1,13 @@
+// Background image sources
+let srcImages = [
+    './assets/bg.jpg',
+    './assets/bg2.jpg',
+    './assets/bg3.jpg',
+    './assets/bg4.jpg'
+  ];
+
+ // Background image sources
+const bg = document.querySelector('.bg');
 
 // Vars for ISS data
 const lat = document.querySelector('.lat');
@@ -118,22 +128,26 @@ while (lat.textContent == '' & long.textContent == '' & country.textContent == '
     capital.textContent = 'Loading...';
 }
 
-
 // QUOTES
-
 // Change quotes
 let counter = 0;
+let currentIndex = 0;
 function changeText() {
 
     // Add a quote to the paragraph & increment counter
     text1.textContent = quotes.data[counter].text;
     textAttr.textContent =  '-' + quotes.data[counter].attribute;
 
+    // Change BG image src
+    bg.src = srcImages[currentIndex];
+    currentIndex = (currentIndex + 1) % srcImages.length;
+
     // Increment counter and loop back to the beginning if necessary
     counter = (counter + 1) % quotes.data.length;
 
     // Add class for CSS animation
     text1.classList.add('fade-in-out');
+    bg.classList.add('fade-in-out');
     textAttr.classList.add('fade-in-out');
 }
 

@@ -1,4 +1,4 @@
-// Background image sources
+// List of background image sources
 let srcImages = [
     './assets/bg.jpg',
     './assets/bg2.jpg',
@@ -6,7 +6,7 @@ let srcImages = [
     './assets/bg4.jpg'
   ];
 
- // Background image sources
+ // Background image selector
 const bg = document.querySelector('.bg');
 
 // Vars for ISS data

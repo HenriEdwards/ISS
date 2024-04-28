@@ -1,10 +1,4 @@
-// List of background image sources
-let srcImages = [
-    './assets/bg.jpg',
-    './assets/bg2.jpg',
-    './assets/bg3.jpg',
-    './assets/bg4.jpg'
-  ];
+
 
  // Background image selector
 const bg = document.querySelector('.bg');
@@ -131,7 +125,7 @@ while (lat.textContent == '' & long.textContent == '' & country.textContent == '
 // QUOTES
 // Change quotes
 let counter = 0;
-let currentIndex = 0;
+
 function changeText() {
 
     // Add a quote to the paragraph & increment counter
@@ -139,10 +133,10 @@ function changeText() {
     textAttr.textContent =  '-' + quotes.data[counter].attribute;
 
     // Change BG image src
-    bg.src = srcImages[currentIndex];
-    currentIndex = (currentIndex + 1) % srcImages.length;
+    // bg.src = srcImages[currentIndex];
+    // currentIndex = (currentIndex + 1) % srcImages.length;
 
-    // Increment counter and loop back to the beginning if necessary
+    // Increment counter and loop back to the beginning
     counter = (counter + 1) % quotes.data.length;
 
     // Add class for CSS animation
@@ -167,3 +161,27 @@ async function getQuotes() {
 }
 
 getQuotes()
+
+
+// Bg images
+// Change images
+let srcImages = [
+    './assets/bg.jpg',
+    './assets/bg2.jpg',
+    './assets/bg3.jpg',
+    './assets/bg4.jpg'
+  ];
+
+  let currentIndex = 0;
+
+function changeImage() {
+
+    // Change BG image src
+    bg.src = srcImages[currentIndex];
+    currentIndex = (currentIndex + 1) % srcImages.length;
+
+}
+
+changeImage()
+setInterval(changeImage, 20000)
+

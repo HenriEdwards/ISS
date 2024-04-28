@@ -147,10 +147,34 @@ li:nth-child(2){
   animation: fade-in-out 15s linear infinite;
 }
 
-.fade-in-out-img {
+.fade-in {
   opacity: 0;
-  animation: fade-in-out 20s linear infinite;
+  animation: fade-in 2s linear forwards;
 }
+
+.fade-out {
+  opacity: 1;
+  animation: fade-out 2s linear forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 
 /* Animation */
 @keyframes fade-in-out {

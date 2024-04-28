@@ -1,8 +1,4 @@
 
-
- // Background image selector
-const bg = document.querySelector('.bg');
-
 // Vars for ISS data
 const lat = document.querySelector('.lat');
 const long = document.querySelector('.long');
@@ -162,26 +158,34 @@ async function getQuotes() {
 
 getQuotes()
 
+// Background image selector
+const bg = document.querySelector('.bg');
 
 // Bg images
 // Change images
 let srcImages = [
-    './assets/bg.jpg',
-    './assets/bg2.jpg',
-    './assets/bg3.jpg',
-    './assets/bg4.jpg'
-  ];
+  './assets/bg.jpg',
+  './assets/bg2.jpg',
+  './assets/bg3.jpg',
+  './assets/bg4.jpg'
+];
 
-  let currentIndex = 0;
+let currentIndex = 0;
 
 function changeImage() {
 
     // Change BG image src
     bg.src = srcImages[currentIndex];
     currentIndex = (currentIndex + 1) % srcImages.length;
+    bg.classList.remove('fade-out');
+    bg.classList.add('fade-in');
+
+  setTimeout(() => {
+    bg.classList.remove('fade-in');
+    bg.classList.add('fade-out');
+  }, 18000); 
 
 }
 
-changeImage()
-setInterval(changeImage, 20000)
-
+changeImage();
+setInterval(changeImage, 20000);

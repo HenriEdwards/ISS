@@ -158,33 +158,32 @@ async function getQuotes() {
 
 getQuotes()
 
+
 // Background image selector
 const bg = document.querySelector('.bg');
-
-// Bg images
-// Change images
 let srcImages = [
   './assets/bg.jpg',
   './assets/bg2.jpg',
   './assets/bg3.jpg',
   './assets/bg4.jpg'
 ];
-
 let currentIndex = 0;
 
+// Change image every 20 secs
+// Ensure slow servers doesnt cause the img & animation to go out of sync
 function changeImage() {
-
-    // Change BG image src
-    bg.src = srcImages[currentIndex];
-    currentIndex = (currentIndex + 1) % srcImages.length;
+  const image = new Image();
+  image.onload = () => {
+    bg.src = image.src;
     bg.classList.remove('fade-out');
     bg.classList.add('fade-in');
-
-  setTimeout(() => {
-    bg.classList.remove('fade-in');
-    bg.classList.add('fade-out');
-  }, 18000); 
-
+    setTimeout(() => {
+      bg.classList.remove('fade-in');
+      bg.classList.add('fade-out');
+    }, 18000);
+  };
+  image.src = srcImages[currentIndex];
+  currentIndex = (currentIndex + 1) % srcImages.length;
 }
 
 changeImage();
